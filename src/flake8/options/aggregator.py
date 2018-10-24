@@ -55,6 +55,16 @@ def aggregate_options(manager, config_finder, arglist=None, values=None):
     default_values.ignore = list(extended_default_ignore)
     LOG.debug("Merged default ignore list: %s", default_values.ignore)
 
+    # Extend the default exclude value with the extended default exclude list,
+    # registered by plugins.
+    extended_default_exclude = manager.extended_default_exclude.copy()
+    LOG.debug(
+        "Extended default exclude list: %s", list(extended_default_exclude)
+    )
+    extended_default_exclude.update(default_values.exclude)
+    default_values.exclude = list(extended_default_exclude)
+    LOG.debug("Merged default exclude list: %s", default_values.exclude)
+
     extended_default_select = manager.extended_default_select.copy()
     LOG.debug(
         "Extended default select list: %s", list(extended_default_select)

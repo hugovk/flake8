@@ -1,6 +1,7 @@
 """Checker Manager and Checker classes."""
 import collections
 import errno
+import itertools
 import logging
 import os
 import signal
@@ -188,7 +189,7 @@ class Manager(object):
                 return False
             path = self.options.stdin_display_name
 
-        exclude = self.options.exclude
+        exclude = itertools.chain(self.options.exclude, self.options.extend_exclude)
         if not exclude:
             return False
         basename = os.path.basename(path)

@@ -46,6 +46,8 @@ Index of Options
 
 - :option:`flake8 --exclude`
 
+- :option:`flake8 --extend-exclude`
+
 - :option:`flake8 --filename`
 
 - :option:`flake8 --stdin-display-name`
@@ -251,6 +253,33 @@ Options and their Descriptions
         exclude =
             .tox,
             __pycache__
+
+
+.. option:: --extend-exclude=<patterns>
+
+    :ref:`Go back to index <top>`
+
+    Provide a comma-separated list of glob patterns to exclude from checks.
+
+    The difference to the :option:`--exclude` option is, that this option can be
+    used to selectively add individual patterns without overriding the default
+    list entirely.
+
+    Command-line example:
+
+    .. prompt:: bash
+
+        flake8 --extend-exclude=vendor dir/
+
+    This **can** be specified in config files.
+
+    Example config file usage:
+
+    .. code-block:: ini
+
+        exclude =
+            vendor
+            depends
 
 
 .. option:: --filename=<patterns>

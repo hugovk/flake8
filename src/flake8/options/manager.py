@@ -202,6 +202,7 @@ class OptionManager(object):
         self.version = version
         self.registered_plugins = set()
         self.extended_default_ignore = set()
+        self.extended_default_exclude = set()
         self.extended_default_select = set()
 
     @staticmethod
@@ -258,6 +259,16 @@ class OptionManager(object):
         """
         LOG.debug("Extending default ignore list with %r", error_codes)
         self.extended_default_ignore.update(error_codes)
+
+    def extend_default_exclude(self, patterns):
+        """Extend the default exclude list with the patterns provided.
+
+        :param list patterns:
+            List of strings that are the patterns with which to extend the
+            default exclude list.
+        """
+        LOG.debug("Extending default exclude list with %r", patterns)
+        self.extended_default_exclude.update(patterns)
 
     def extend_default_select(self, error_codes):
         """Extend the default select list with the error codes provided.

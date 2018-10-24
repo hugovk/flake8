@@ -99,6 +99,9 @@ And you should see something like:
       --exclude=patterns    Comma-separated list of files or directories to
                             exclude.(Default:
                             .svn,CVS,.bzr,.hg,.git,__pycache__,.tox)
+      --extend-exclude=patterns
+                            Comma-separated list of files or directories to add to
+                            the list of excluded ones.
       --filename=patterns   Only check for filenames matching the patterns in this
                             comma-separated list. (Default: *.py)
       --format=format       Format errors according to the chosen formatter.
