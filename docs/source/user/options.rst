@@ -277,7 +277,7 @@ Options and their Descriptions
 
     .. code-block:: ini
 
-        exclude =
+        extend-exclude =
             vendor
             depends
 
