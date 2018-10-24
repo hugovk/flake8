@@ -82,11 +82,11 @@ def test_parse_args_handles_comma_separated_defaults(optmanager):
     assert optmanager.options == []
     assert optmanager.config_options_dict == {}
 
-    optmanager.add_option('--exclude', default='E123,W234',
+    optmanager.add_option('--exclude', default='.git,*.egg',
                           comma_separated_list=True)
 
     options, args = optmanager.parse_args([])
-    assert options.exclude == ['E123', 'W234']
+    assert options.exclude == ['.git', '*.egg']
 
 
 def test_parse_args_handles_comma_separated_lists(optmanager):
@@ -94,11 +94,11 @@ def test_parse_args_handles_comma_separated_lists(optmanager):
     assert optmanager.options == []
     assert optmanager.config_options_dict == {}
 
-    optmanager.add_option('--exclude', default='E123,W234',
+    optmanager.add_option('--exclude', default='.git,*.egg',
                           comma_separated_list=True)
 
-    options, args = optmanager.parse_args(['--exclude', 'E201,W111,F280'])
-    assert options.exclude == ['E201', 'W111', 'F280']
+    options, args = optmanager.parse_args(['--exclude', '.svn,CVS,.hg'])
+    assert options.exclude == ['.svn', 'CVS', '.hg']
 
 
 def test_parse_args_normalize_paths(optmanager):
