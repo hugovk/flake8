@@ -189,7 +189,9 @@ class Manager(object):
                 return False
             path = self.options.stdin_display_name
 
-        exclude = itertools.chain(self.options.exclude, self.options.extend_exclude)
+        exclude = itertools.chain(
+            self.options.exclude, self.options.extend_exclude
+        )
         if not exclude:
             return False
         basename = os.path.basename(path)

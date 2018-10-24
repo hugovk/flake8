@@ -215,6 +215,7 @@ def test_extend_default_ignore(optmanager):
                                                   'T101',
                                                   'T102'}
 
+
 def test_extend_default_exclude(optmanager):
     """Verify that we update the extended default exclude list."""
     assert optmanager.extended_default_exclude == set()
